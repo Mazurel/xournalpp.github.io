@@ -1,3 +1,14 @@
+/*
+ * This stylesheet contains definitions for creating
+ * buttons on Xournal++ website.
+ * See below to see what styles are avaible.
+ *
+ */
+
+
+/* Simple button that can be used anywhere,
+ * preferrably it should be wrapped in special container 
+ */
 a.xournalppButton {
     display: inline-flex;
     position: relative;
@@ -18,10 +29,9 @@ a.xournalppButton:hover {
     color: var(--md-primary-bg-color--light);
 }
 
-a.linkButton, a.downloadButton {
-    padding-left: 35px;
-}
-
+/* This classes extend xournalppButton, so that
+ * it can contain icon (currently link or download)
+ */
 a.linkButton:before {
     display: block;
     position: absolute;
@@ -47,6 +57,14 @@ a.downloadButton:before {
     background-repeat: no-repeat;
 }
 
+a.linkButton, a.downloadButton {
+    padding-left: 35px;
+}
+
+
+/* Container of xournalppButton in which the buttons
+ * have different width (like on the front page)
+ */
 .flexedButtonsContainer {
     display: flex;
     justify-content: left;
@@ -57,6 +75,20 @@ a.downloadButton:before {
     list-style-type: none;
 }
 
+/* When screen is small scretch the buttons */
+@media only screen and (max-width: 600px) {
+    .flexedButtonsContainer {
+        display: block;
+    }
+}
+
+/* Grid container of buttons, it is currently used
+ * only as a download buttons container, it does not have
+ * specified columns number so it is required to specify it yourself
+ * 
+ * ex.
+ * grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+ */
 .downloadsContainer {
     display: grid !important;
     justify-content: center;
@@ -70,6 +102,7 @@ a.downloadButton:before {
     margin: 0 !important;
 }
 
+/* Individual definitions for some containers */
 #osContainer > a {
     font-size: 24px;
 }
